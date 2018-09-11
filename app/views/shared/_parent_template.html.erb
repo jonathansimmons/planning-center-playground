@@ -1,0 +1,43 @@
+<template id="parent-template" class="hide">
+  <div class="card-body">
+    <button class="float-right close" type="button" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h3 class="card-title">Parent / Guardian</h3>
+    <fieldset>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-4">
+            <%= label_tag "First Name", nil, { for: "guardians[][timestamp][attributes][first_name]" } %>
+            <%= text_field_tag "guardians[][timestamp][attributes][first_name]", nil, { class: "form-control", required: true } %>
+            <div class="invalid-feedback">required</div>
+          </div>
+          <div class="col-md-4">
+            <%= label_tag "last Name", nil, { for: "guardians[][timestamp][attributes][last_name]" } %>
+            <%= text_field_tag "guardians[][timestamp][attributes][last_name]", nil, { class: "form-control", required: true } %>
+            <div class="invalid-feedback">required</div>
+          </div>
+          <div class="col-md-4">
+            <%= label_tag "Suffix", nil, { for: "guardians[][timestamp][included][name_prefix]" } %>
+            <%= select_tag "guardians[][timestamp][included][name_prefix]", options_for_select(["Jr.", "Sr.", "PH.D.", "II", "III"]),  { include_blank: true, class: "form-control" } %>
+            <div class="invalid-feedback">required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-6">
+            <%= label_tag "Birthday", nil, { for: "guardians[][timestamp][attributes][birthday]" } %>
+            <%= date_field_tag "guardians[][timestamp][attributes][birthday]", nil, { class: "form-control datepicker", required: true } %>
+            <div class="invalid-feedback">required</div>
+          </div>
+          <div class="col-md-6">
+            <%= label_tag "Gender", nil, { for: "guardians[][timestamp][attributes][gender]" }%>
+            <%= select_tag "guardians[][timestamp][attributes][gender]", options_for_select([["Male", "male"], ["Female", "female"]], nil), { prompt: "Select a gender", class: "form-control", required: true } %>
+            <div class="invalid-feedback">required</div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</template>

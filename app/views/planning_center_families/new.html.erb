@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col-md-10 offset-md-1 col-xs-12">
+    <h2>New Family</h2>
+    <p>Please fill out the form below to prepare your family for check-in.</p>
+    <%= form_tag families_url, { class: "needs-validation", novalidate: true } do |form| %>
+
+      <div class="form-group <%= "hide" if params[:campus].present? %>">
+        <%= label_tag "Campus", nil, { for: "campus" } %>
+        <%= select_tag "campus", options_for_select([["Dallas", "dallas"], ["Frisco", "frisco"], ["Grand Prairie", "grand-prairie"], ["North Fort Worth", "north-fort-worth"], ["NRH", "nrh"], ["Southlake", "southlake"]], params[:campus]), { prompt: "Select a campus", class: "form-control", required: true } %>
+        </div>
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Parent / Guardian</h3>
+          <fieldset>
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-4">
+                    <%= label_tag "First Name", nil, { for: "primary[attributes][first_name]" }  %>
+                    <%= text_field_tag "primary[attributes][first_name]", nil, { class: "form-control", required:  true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
+                  <div class="col-md-4">
+                    <%= label_tag "last Name", nil, { for: "primary[attributes][last_name]" }  %>
+                    <%= text_field_tag "primary[attributes][last_name]", nil, { class: "form-control", required:   true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
+                  <div class="col-md-4">
+                    <%= label_tag "Suffix", nil, { for: "primary[included][name_prefix]" }  %>
+                    <%= select_tag "primary[included][name_prefix]", options_for_select(["Jr.", "Sr.", "PH.D.", "II", "III"]),  { include_blank: true, class: "form-control" } %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <%= label_tag "Birthday", nil, { for: "primary[attributes][birthday]"  } %>
+                  <%= date_field_tag "primary[attributes][birthday]", nil, { class: "form-control datepicker", required: true } %>
+                  <div class="invalid-feedback">required</div>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag "Gender", nil, { for: "primary[attributes][gender]" } %>
+                  <%= select_tag "primary[attributes][child]", options_for_select([["Male", "male"], ["Female", "female"]], nil), { prompt: "Select a gender", class: "form-control", required: true } %>
+                  <div class="invalid-feedback">required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <%= label_tag "Email", nil, { for: "primary[attributes][email]" } %>
+                  <%= text_field_tag "primary[attributes][email]", nil, { class: "form-control", required: true } %>
+                  <div class="invalid-feedback">required</div>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag "Phone Number", nil, { for: "primary[attributes][phone]" } %>
+                  <%= text_field_tag "primary[attributes][phone]", nil, { class: "form-control", required: true } %>
+                  <div class="invalid-feedback">required</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <%= label_tag "Street", nil, { for: "primary[attributes][street]" } %>
+              <%= text_field_tag "primary[attributes][street]", nil, { class: "form-control", required: true } %>
+              <div class="invalid-feedback">required</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <%= label_tag "City", nil, { for: "primary[attributes][city]" } %>
+                  <%= text_field_tag "primary[attributes][city]", nil, { class: "form-control", required: true } %>
+                  <div class="invalid-feedback">required</div>
+                </div>
+                <div class="col-md-4">
+                  <%= label_tag "State", nil, { for: "primary[attributes][state]" } %>
+                  <%= text_field_tag "primary[attributes][state]", nil, { class: "form-control", required: true } %>
+                  <div class="invalid-feedback">required</div>
+                </div>
+                <div class="col-md-2">
+                  <%= label_tag "Zip", nil, { for: "primary[attributes][zip]" } %>
+                  <%= text_field_tag "primary[attributes][zip]", nil, { class: "form-control", required: true } %>
+                  <div class="invalid-feedback">required</div>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="members" data-parent-count="0" data-child-count="0"></div>
+
+      <div class="float-left">
+        <%= button_tag "Add Parent / Guardian", type: "button", class: "btn btn-secondary add-parent" %>
+        <%= button_tag "Add Child", type: "button", class: "btn btn-secondary add-child" %>
+      </div>
+
+      <div class="float-right">
+        <%= submit_tag "Submit", class: "btn btn-primary" %>
+      </div>
+
+      <div class="form-group pull-right">
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render "shared/child_template" %>
+<%= render "shared/parent_template" %>
+
