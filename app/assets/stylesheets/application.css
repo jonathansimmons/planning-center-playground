@@ -15,8 +15,14 @@
  *= require_self
  */
 
+html {
+  font-size:16px
+}
+
 body {
-  padding: 50px 0;
+  font-family:  "Gotham SSm A", "Gotham SSm B", -apple-system, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 1.5rem;
+  background-color: #f9f9f9;
 }
 
 .hide {
@@ -27,6 +33,27 @@ body {
   margin-bottom: 30px;
 }
 
+.card-body {
+  background: #ffffff;
+}
+
 .datepicker {
   min-height: 40px;
 }
+
+.logo {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 100px;
+}
+
+.btn {
+  border-radius: 1.25rem;
+}
+
+
+/* @media only screen and (max-width: 480px) { */
+  .col-md-12, .col-md-6, .col-md-4 {
+    margin-bottom: 0.75rem;
+  }
+/* } */

@@ -1,23 +1,12 @@
 <h1>Get Started</h1>
-<p>Below are a list of simple planning center actions you can take.</p>
+<p>Below is a list of simple planning center actions you can take.</p>
 <div class="row">
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
         <h2 class="card-title">New Family</h2>
         <p class="card-text">A form to create a new family in your Planning Center account.</p>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Campus</button>
-          </button>
-          <div class="dropdown-menu">
-            <%= link_to "Dallas", new_family_url(campus: "dallas"), class: "dropdown-item" %>
-            <%= link_to "Frisco", new_family_url(campus: "frisco"), class: "dropdown-item" %>
-            <%= link_to "Grand Prairie", new_family_url(campus: "grand-prairie"), class: "dropdown-item" %>
-            <%= link_to "North Fort Worth", new_family_url(campus: "north-fort-worth"), class: "dropdown-item" %>
-            <%= link_to "NRH", new_family_url(campus: "nrh" ), class: "dropdown-item" %>
-            <%= link_to "Southlake", new_family_url(campus: "southlake" ), class: "dropdown-item" %>
-          </div>
-        </div>
+        <%= link_to "Create a Family", new_family_url, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
