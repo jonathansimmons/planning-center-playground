@@ -240,7 +240,7 @@ DEPENDENCIES
   pco_api
   pg (~> 0.20)
   puma (~> 3.11)
-  rails (~> 5.2.0)
+  rails (~> 5.2.3)
   rails_12factor
   sass-rails (~> 5.0)
   seedbank
