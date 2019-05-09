@@ -25,6 +25,16 @@ body {
   background-color: #f9f9f9;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li { margin: 1rem 0; }
+
+a:hover {
+
+}
+
 .hide {
   display:none !important;
 }
@@ -51,9 +61,7 @@ body {
   border-radius: 1.25rem;
 }
 
-
-/* @media only screen and (max-width: 480px) { */
-  .col-md-12, .col-md-6, .col-md-4 {
-    margin-bottom: 0.75rem;
-  }
-/* } */
+/* Gross hack I should be ashamed of */
+.col-md-12, .col-md-6, .col-md-4 {
+  margin-bottom: 0.75rem;
+}

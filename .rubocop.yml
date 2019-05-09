@@ -1,0 +1,52 @@
+AllCops:
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - bin/**/*
+    - test/**/*
+    - Guardfile
+
+Style/ClassAndModuleChildren:
+  Enabled: False
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StructInheritance:
+  Exclude:
+    - app/policies/**/*
+
+Metrics/LineLength:
+  Max: 80
+
+Metrics/MethodLength:
+  Max: 20
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  Description: Checks for trailing comma in argument lists.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-trailing-params-comma
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  Description: Checks for trailing comma in array literals.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  Description: Checks for trailing comma in hash literals.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+Layout/ExtraSpacing:
+  Description: "Do not use unnecessary spacing."
+  AllowForAlignment: false
+  Enabled: true

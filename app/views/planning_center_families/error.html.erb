@@ -1,7 +1,10 @@
+<%= image_tag "kids.png", class: "logo" %>
+<hr>
 <div class="row">
   <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-xs-12">
     <h2>Uh Oh!</h2>
-    <p>We're really sorry but there was an issue submitting your information.</p>
-    <%= link_to "Start Over", new_family_path, class: "btn btn-primary" %>
+    <p>We're sorry, but it looks like we had an issue while processing your information. You can try again using the button below, but if the problem persist, please <a href="mailto:dallas@hillsong.com?subject=Kid's pre-register form problem">email us for help</a>.
+    <br>
+    <%= link_to "Try again", new_family_path, class: "btn btn-block btn-outline-secondary mt-3" %>
   </div>
 </div>

@@ -3,14 +3,27 @@
 <div class="row">
   <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-xs-12">
     <hr>
-    <h1>Success 🎉</h1>
-    <p>You did it! Your family has been pre-registered in our Kids Check-in system. We can't wait to see you!</p>
-    <p>Here are a few things you might like to know about at Hillsong Dallas</p>
-    <ul>
-      <li><%= link_to "Download the Hillsong USA app", "http://hillsong.com/dallas/#approw" %></li>
-      <li><%= link_to "Set up your giving", "https://pushpay.com/g/hillsongdallas" %></li>
-      <li><%= link_to "Follow us on Instagram", "https://instagram.com/hillsongdallas" %></li>
-      <li><%= link_to "Like our Facebook page", "https://facebook.com/hillsongdal" %></li>
-    </ul>
+    <div class="card">
+      <div class="card-body">
+        <h1>Success 🎉</h1>
+        <p>You did it! Your family has been pre-registered in our Kids Check-in system. We can't wait to see you!</p>
+        <p>Here are a few things you might like to know about at Hillsong Dallas</p>
+        <ul>
+          <li><%= link_to "Download the Hillsong USA app", "http://hillsong.com/dallas/#approw", class: "btn btn-block btn-outline-dark" %></li>
+          <li><%= link_to "Set up your giving", "https://pushpay.com/g/hillsongdallas", class: "btn btn-block btn-outline-dark" %></li>
+          <li>
+            <%= link_to  "https://instagram.com/hillsongdallas", class: "btn btn-block btn-outline-dark" do %>
+              <i class="fab fa-instagram"></i> Follow us on Instagram
+            <% end %>
+          </li>
+          <li>
+            <%= link_to  "https://facebook.com/hillsongdal", class: "btn btn-block btn-outline-dark" do %>
+              <i class="fab fa-facebook"></i> Like our Facebook page
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
+
