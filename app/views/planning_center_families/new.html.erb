@@ -9,77 +9,79 @@
 
     <%= form_tag families_url, { class: "needs-validation", novalidate: true } do |form| %>
       <div class="parents">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="h4 card-title">Parent/Guardian 1</h3>
-            <fieldset>
-              <div class="form-row">
-                <div class="col-md-6">
-                    <%= label_tag "First Name", nil, { for: "primary[attributes][first_name]" }  %>
-                    <%= text_field_tag "primary[attributes][first_name]", nil, { class: "form-control", required:  true } %>
+        <div class="additional-item">
+          <h2 class="h4 mt-5 mb-3 item-title">Parent/Guardian 1</h3>
+          <div class="card">
+            <div class="card-body">
+              <fieldset>
+                <div class="form-row">
+                  <div class="col-md-6">
+                      <%= label_tag "First Name", nil, { for: "primary[attributes][first_name]" }  %>
+                      <%= text_field_tag "primary[attributes][first_name]", nil, { class: "form-control", required:  true } %>
+                      <div class="invalid-feedback">required</div>
+                  </div>
+                  <div class="col-md-6">
+                      <%= label_tag "last Name", nil, { for: "primary[attributes][last_name]" }  %>
+                      <%= text_field_tag "primary[attributes][last_name]", nil, { class: "form-control", required:   true } %>
+                      <div class="invalid-feedback">required</div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <%= label_tag "Birthday", nil, { for: "primary[attributes][birthday]"  } %>
+                    <%= date_field_tag "primary[attributes][birthday]", nil, { class: "form-control datepicker", required: true } %>
                     <div class="invalid-feedback">required</div>
-                </div>
-                <div class="col-md-6">
-                    <%= label_tag "last Name", nil, { for: "primary[attributes][last_name]" }  %>
-                    <%= text_field_tag "primary[attributes][last_name]", nil, { class: "form-control", required:   true } %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= label_tag "Gender", nil, { for: "primary[attributes][gender]" } %>
+                    <%= select_tag "primary[attributes][child]", options_for_select([["Male", "male"], ["Female", "female"]], nil), { prompt: "Select a gender", class: "form-control", required: true } %>
                     <div class="invalid-feedback">required</div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-row">
-                <div class="col-md-6">
-                  <%= label_tag "Birthday", nil, { for: "primary[attributes][birthday]"  } %>
-                  <%= date_field_tag "primary[attributes][birthday]", nil, { class: "form-control datepicker", required: true } %>
-                  <div class="invalid-feedback">required</div>
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <%= label_tag "Email", nil, { for: "primary[attributes][email]" } %>
+                    <%= text_field_tag "primary[attributes][email]", nil, { class: "form-control", required: true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
+                  <div class="col-md-6">
+                    <%= label_tag "Phone Number", nil, { for: "primary[attributes][phone]" } %>
+                    <%= text_field_tag "primary[attributes][phone]", nil, { class: "form-control", required: true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <%= label_tag "Gender", nil, { for: "primary[attributes][gender]" } %>
-                  <%= select_tag "primary[attributes][child]", options_for_select([["Male", "male"], ["Female", "female"]], nil), { prompt: "Select a gender", class: "form-control", required: true } %>
-                  <div class="invalid-feedback">required</div>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="col-md-6">
-                  <%= label_tag "Email", nil, { for: "primary[attributes][email]" } %>
-                  <%= text_field_tag "primary[attributes][email]", nil, { class: "form-control", required: true } %>
-                  <div class="invalid-feedback">required</div>
-                </div>
-                <div class="col-md-6">
-                  <%= label_tag "Phone Number", nil, { for: "primary[attributes][phone]" } %>
-                  <%= text_field_tag "primary[attributes][phone]", nil, { class: "form-control", required: true } %>
-                  <div class="invalid-feedback">required</div>
-                </div>
-              </div>
 
 
-              <div class="form-row">
-                <div class="col-md-12">
-                  <%= label_tag "Street", nil, { for: "primary[attributes][street]" } %>
-                  <%= text_field_tag "primary[attributes][street]", nil, { class: "form-control", required: true } %>
-                  <div class="invalid-feedback">required</div>
+                <div class="form-row">
+                  <div class="col-md-12">
+                    <%= label_tag "Street", nil, { for: "primary[attributes][street]" } %>
+                    <%= text_field_tag "primary[attributes][street]", nil, { class: "form-control", required: true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-row">
-                <div class="col-md-6">
-                  <%= label_tag "City", nil, { for: "primary[attributes][city]" } %>
-                  <%= text_field_tag "primary[attributes][city]", nil, { class: "form-control", required: true } %>
-                  <div class="invalid-feedback">required</div>
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <%= label_tag "City", nil, { for: "primary[attributes][city]" } %>
+                    <%= text_field_tag "primary[attributes][city]", nil, { class: "form-control", required: true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
+                  <div class="col-md-4">
+                    <%= label_tag "State", nil, { for: "primary[attributes][state]" } %>
+                    <%= text_field_tag "primary[attributes][state]", nil, { class: "form-control", required: true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
+                  <div class="col-md-2">
+                    <%= label_tag "Zip", nil, { for: "primary[attributes][zip]" } %>
+                    <%= text_field_tag "primary[attributes][zip]", nil, { class: "form-control", required: true } %>
+                    <div class="invalid-feedback">required</div>
+                  </div>
                 </div>
-                <div class="col-md-4">
-                  <%= label_tag "State", nil, { for: "primary[attributes][state]" } %>
-                  <%= text_field_tag "primary[attributes][state]", nil, { class: "form-control", required: true } %>
-                  <div class="invalid-feedback">required</div>
-                </div>
-                <div class="col-md-2">
-                  <%= label_tag "Zip", nil, { for: "primary[attributes][zip]" } %>
-                  <%= text_field_tag "primary[attributes][zip]", nil, { class: "form-control", required: true } %>
-                  <div class="invalid-feedback">required</div>
-                </div>
-              </div>
 
-            </fieldset>
+              </fieldset>
+            </div>
           </div>
         </div>
       </div>

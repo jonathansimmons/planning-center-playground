@@ -15,10 +15,6 @@
  *= require_self
  */
 
-html {
-  font-size:16px
-}
-
 body {
   font-family:  "Gotham SSm A", "Gotham SSm B", -apple-system, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   padding: 1.5rem;

@@ -34,12 +34,16 @@ $(document).ready(function () {
 
 $(document).on('click', '.close', function (e) {
   e.preventDefault();
-  this.closest('.card').remove();
+  object = $(this).data("type")
+  $(this).closest('.additional-item').fadeOut(500, function () {
+    $(this).remove();
+    resetItemHeaders(object)
+  });
+
 })
 
 $(document).on('click', '.add-parent', function (e) {
   e.preventDefault();
-  console.log(this)
   cloneTemplate('parent-template', 'parents')
 })
 
@@ -53,7 +57,7 @@ window.addEventListener('load', function () {
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.getElementsByClassName('needs-validation');
   // Loop over them and prevent submission
-  var validation = Array.prototype.filter.call(forms, function (form) {
+  Array.prototype.filter.call(forms, function (form) {
     form.addEventListener('submit', function (event) {
       if (form.checkValidity() === false) {
         event.preventDefault();
@@ -64,29 +68,46 @@ window.addEventListener('load', function () {
   });
 }, false);
 
+function resetItemHeaders(type) {
+  if (type == "parent") {
+    title = "Parent/Guardian "
+    target = '.parents .item-title'
+  } else {
+    title = "Child "
+    target = '.children .item-title'
+  }
+
+  $(target).each(function (index) {
+    index = index + 1
+    $(this).html(title + index)
+  })
+}
+
 function cloneTemplate(templateName, section) {
   var templateSection = document.getElementsByClassName(section)[0];
   var membersContainer = document.getElementsByClassName('members')[0];
   htmlContent = document.getElementById(templateName)
   switch (templateName) {
     case "child-template":
-      childIndex = parseInt(membersContainer.attributes["data-child-count"].value) + 1;
+      childIndex = parseInt($('.children').children().length) + 1;
       membersContainer.attributes["data-child-count"].value = childIndex
       htmlContent = htmlContent.innerHTML.replace(/timestamp/g, childIndex)
       htmlContent = htmlContent.replace(/Child/g, "Child " + childIndex)
       break;
     case "parent-template":
-      parentIndex = parseInt(membersContainer.attributes["data-parent-count"].value) + 1;
+      parentIndex = parseInt($('.parents').children().length) + 1;
       membersContainer.attributes["data-parent-count"].value = parentIndex
       htmlContent = htmlContent.innerHTML.replace(/timestamp/g, parentIndex)
-      parentCount = parentIndex + 1 // increment one because primary is preloaded on page
-      htmlContent = htmlContent.replace(/Guardian/g, "Guardian " + parentCount)
+      htmlContent = htmlContent.replace(/Parent\/Guardian/g, "Parent/Guardian " + parentIndex)
       break;
   }
   memberTemplate = document.createElement("div");
-  memberTemplate.setAttribute("class", "card");
+  memberTemplate.setAttribute("class", "additional-item");
   memberTemplate.innerHTML = htmlContent
   templateSection.appendChild(memberTemplate);
-  // $(".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-};
 
+  $('.datepicker').on("change", function () {
+    console.log($(this).val())
+    console.log(Date.parse($(this).val()))
+  });
+};
