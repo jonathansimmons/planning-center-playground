@@ -95,10 +95,17 @@ function cloneTemplate(templateName, section) {
       htmlContent = htmlContent.replace(/Child/g, "Child " + childIndex)
       break;
     case "parent-template":
-      parentIndex = parseInt($('.parents').children().length) + 1;
-      membersContainer.attributes["data-parent-count"].value = parentIndex
-      htmlContent = htmlContent.innerHTML.replace(/timestamp/g, parentIndex)
-      htmlContent = htmlContent.replace(/Parent\/Guardian/g, "Parent/Guardian " + parentIndex)
+      if ($('.parents').children().length >= 2) {
+        parentIndex = parseInt($('.parents').children().length) + 1;
+        htmlContent = htmlContent.innerHTML.replace(/timestamp/g, parentIndex)
+        membersContainer.attributes["data-parent-count"].value = parentIndex
+      } else {
+        parentIndex = 1;
+        adjustedParentIndex = parentIndex + 1
+        membersContainer.attributes["data-parent-count"].value = adjustedParentIndex
+        htmlContent = htmlContent.innerHTML.replace(/timestamp/g, parentIndex)
+        htmlContent = htmlContent.replace(/Parent\/Guardian/g, "Parent/Guardian " + adjustedParentIndex)
+      }
       break;
   }
   memberTemplate = document.createElement("div");
