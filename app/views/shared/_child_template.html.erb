@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-2">
               <%= label_tag "Grade", nil, { for: "children[][timestamp][attributes][grade]" }%>
-              <%= select_tag "children[][timestamp][attributes][grade]", options_for_select([["Pre-k", "-1"], ["K", "K"], ["1st", "1"], ["2nd", "2"], ["3rd", "3"], ["4th", "4"], ["5th", "5"], ["6th", "6"], ["7th", "7"], ["8th", "8"], ["9th", "9"], ["10th", "10"], ["11th", "11"], ["12th", "12"]], nil), { include_blank: true, class: "form-control" } %>
+              <%= select_tag "children[][timestamp][attributes][grade]", options_for_select([["Pre-k", "-1"], ["K", "K"], ["1st", "1"], ["2nd", "2"], ["3rd", "3"], ["4th", "4"], ["5th", "5"], ["6th", "6"], ["7th", "7"], ["8th", "8"], ["9th", "9"], ["10th", "10"], ["11th", "11"], ["12th", "12"]], nil), { include_blank: true, class: "form-control", required: true } %>
               <div class="invalid-feedback">required</div>
             </div>
           </div>
