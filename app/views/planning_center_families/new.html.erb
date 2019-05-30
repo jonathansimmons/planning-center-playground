@@ -13,6 +13,11 @@
 
 
     <%= form_tag families_url, { class: "needs-validation", novalidate: true } do |form| %>
+      <br>
+      <div class="form-group <%= "hide" if params[:campus].present? %>">
+        <%= label_tag "Campus", nil, { for: "campus" } %>
+        <%= select_tag "campus", options_for_select([["Dallas", "dallas"], ["Frisco", "frisco"], ["Grand Prairie", "grand-prairie"], ["Jackson Hole", "jackson-hole"], ["Justin", "justin"], ["North Fort Worth", "north-fort-worth"], ["NRH", "nrh"], ["Southlake", "southlake"]], params[:campus]), { prompt: "Select a campus", class: "form-control", required: true } %>
+      </div>
       <div class="parents">
         <div class="additional-item">
           <h2 class="h4 mt-5 mb-3 item-title">Parent/Guardian 1</h3>

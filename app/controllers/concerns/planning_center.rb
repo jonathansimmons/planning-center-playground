@@ -6,13 +6,14 @@ module PlanningCenter
   included do
     def create_family
       @members = []
-      person = create_person(params[:primary])
+      campus = parse_campus(params[:campus])
+      person = create_person(params[:primary], campus)
       if person.present?
         if params[:guardians].present?
           guardians = params[:guardians].first
           guardians.keys.count.times do |index|
             guardian = index + 1
-            create_person(guardians[guardian.to_s])
+            create_person(guardians[guardian.to_s], campus)
           end
         end
 
@@ -20,7 +21,7 @@ module PlanningCenter
           children = params[:children].first
           children.keys.count.times do |index|
             child = index + 1
-            create_person(children[child.to_s], true)
+            create_person(children[child.to_s], campus, true)
           end
         end
 
@@ -32,7 +33,7 @@ module PlanningCenter
 
   private
 
-  def create_person(data, child = false)
+  def create_person(data, campus, child = false)
     person = PCI.people.v2.people.post(
       data: {
         type: "Person",
@@ -44,6 +45,14 @@ module PlanningCenter
           birthdate: data[:attributes][:birthday],
           child: child,
         },
+        relationships: {
+          primary_campus: {
+            data: {
+              type: "PrimaryCampus",
+              id: campus
+            }
+          }
+        }
       },
     )
     create_address(params, person["data"]["id"])
@@ -118,5 +127,26 @@ module PlanningCenter
         },
       },
     )
+  end
+
+  def parse_campus(campus)
+    case campus
+    when "dallas"
+      "12742"
+    when "frisco"
+      "16416"
+    when "grand-prarie"
+      "16419"
+    when "jackson-hole"
+      "29921"
+    when "justin"
+      "33129"
+    when "north-fort-worth"
+      "12741"
+    when "nrh"
+      "16421"
+    when "southlake"
+      "12743"
+    end
   end
 end
