@@ -6,7 +6,7 @@ gem 'rails', '~> 5.2.0'
 
 # Server & Database
 gem "pg", "~> 0.20"
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem "seedbank"
 
 # Use SCSS for stylesheets
